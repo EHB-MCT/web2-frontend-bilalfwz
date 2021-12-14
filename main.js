@@ -34,10 +34,12 @@ function renderHomePage(show) {
 
 function setShowInfo(show) {
     let title = document.getElementById("title")
-    let description = document.getElementById("description")
     let rating = document.getElementById("rating")
+    let description = document.getElementById("description")
+
 
     title.innerText = show.name
-    description.innerHTML = show.summary
     rating.innerText = `${show.rating.average}/10`
+    description.innerHTML = show.summary
+
 }
