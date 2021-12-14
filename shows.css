@@ -1,6 +1,8 @@
 html {
     overflow: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 
 #popularShows,
 #allShows {
@@ -15,11 +17,11 @@ html {
 }
 
 .show-title {
-    color: black;
+    color: white;
 }
 
 .show-rating {
-    color: black;
+    color: orange;
 }
 
 .show {
@@ -27,7 +29,11 @@ html {
     flex-direction: column;
 }
 
+.fas {
+    color: white;
+}
+
 .fas:hover {
     cursor: pointer;
-    color: blue;
+    color: orange;
 }
