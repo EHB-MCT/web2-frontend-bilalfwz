@@ -43,3 +43,5 @@ function setShowInfo(show) {
     description.innerHTML = show.summary
 
 }
+
+console.log('this is');
