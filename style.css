@@ -1,0 +1,100 @@
+html {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+#navigation {
+    width: 100vw;
+    height: 10vh;
+    background-color: #444;
+    color: white;
+}
+
+#navigation>ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#navigation a {
+    color: white;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+#aside {
+    width: 15vw;
+    background-color: #333;
+    color: #fff;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#genres {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.genre {
+    width: 100%;
+}
+
+.genre:hover {
+    cursor: pointer;
+}
+
+#showInfo {
+    position: relative;
+    width: 85vw;
+    height: 90vh;
+}
+
+#info {
+    max-width: 25vw;
+}
+
+#title {
+    color: white;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+
+#description {
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+}
+
+#rating {
+    color: white;
+    position: absolute;
+    top: 60%;
+    left: 10%;
+}
+
+#poster {
+    color: white;
+    position: absolute;
+    width: 85vw;
+    max-height: 90vh;
+    filter: brightness(50%);
+}
