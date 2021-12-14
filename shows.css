@@ -1,0 +1,33 @@
+html {
+    overflow: auto;
+}
+
+#popularShows,
+#allShows {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    max-width: 85vw;
+}
+
+.show-image {
+    max-width: 15vw;
+}
+
+.show-title {
+    color: black;
+}
+
+.show-rating {
+    color: black;
+}
+
+.show {
+    display: flex;
+    flex-direction: column;
+}
+
+.fas:hover {
+    cursor: pointer;
+    color: blue;
+}
