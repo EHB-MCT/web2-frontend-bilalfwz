@@ -25,7 +25,7 @@ async function getShows() {
 }
 
 async function searchShows(query) {
-    let response = await fetch(`${baseUrl}/search/shows?q=${query}`)
+    let response = await fetch(`${baseUrl}search/shows?q=${query}`)
     let result = await response.json()
     return result
 }
@@ -44,36 +44,7 @@ function renderPopularPage(count, shows) {
     let showsContainer = document.getElementById("allShows")
     showsContainer.innerHTML = ""
     for (let i = 0; i < count; i++) {
-        let show = createShow(shows[i])
+        let show = createShow(shows[i], true, false, false)
         showsContainer.appendChild(show)
     }
-}
-
-
-
-function createShow(show) {
-    if (show == undefined) return
-    let image = document.createElement("img")
-    image.src = show.image.medium
-    let title = document.createElement("h3")
-    title.innerText = show.name
-    let rating = document.createElement("p")
-    rating.innerText = `${show.rating.average}/10`
-    let addBtn = document.createElement("i")
-    addBtn.classList = "fas fa-plus-circle"
-    addBtn.onclick = function () {
-        addToMyList(show)
-    }
-
-
-    let container = document.createElement("div")
-    image.classList.add("show-image")
-    container.appendChild(image)
-    title.classList.add("show-title")
-    container.appendChild(title)
-    rating.classList.add("show-rating")
-    container.appendChild(rating)
-    container.classList.add("show")
-    container.appendChild(addBtn)
-    return container
 }

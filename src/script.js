@@ -28,20 +28,25 @@ async function getShows() {
 
 function renderHomePage(show) {
     let poster = document.getElementById("poster")
+    console.log(show)
     poster.src = show.image.original
     setShowInfo(show)
 }
 
 function setShowInfo(show) {
     let title = document.getElementById("title")
-    let rating = document.getElementById("rating")
     let description = document.getElementById("description")
-
+    let rating = document.getElementById("rating")
 
     title.innerText = show.name
-    rating.innerText = `${show.rating.average}/10`
     description.innerHTML = show.summary
+    rating.innerText = `${show.rating.average}/10`
 
+    let infoContainer = document.getElementById("info")
+    let addBtn = document.createElement("i")
+    addBtn.classList = "fas fa-plus-circle color-white"
+    addBtn.onclick = function () {
+        addToMyList(show)
+    }
+    infoContainer.appendChild(addBtn)
 }
-
-console.log('this is');
