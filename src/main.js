@@ -1,32 +1,52 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
-/******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
+const baseUrl = "https://api.tvmaze.com/"
+document.querySelectorAll(".genre").forEach(e => e.onclick = filterByGenre)
+window.onload = setup
 
-/***/ "./src/script.js":
-/*!***********************!*\
-  !*** ./src/script.js ***!
-  \***********************/
-/***/ (() => {
+async function setup() {
+  let shows = await getShows()
+  console.log(shows)
+  renderHomePage(shows[0])
+}
 
-eval("const baseUrl = \"https://api.tvmaze.com/\"\ndocument.querySelectorAll(\".genre\").forEach(e => e.onclick = filterByGenre)\nwindow.onload = setup\n\nasync function setup() {\n    let shows = await getShows()\n    console.log(shows)\n    renderHomePage(shows[0])\n}\n\nasync function filterByGenre(e) {\n    let genre = e.target.innerText\n    let shows = await getShows()\n    let filteredShows = shows.filter(s => s.genres.includes(genre))\n    if (filteredShows.length > 0) {\n        let showId = Math.floor(Math.random() * filteredShows.length)\n        renderHomePage(filteredShows[showId])\n    } else {\n        console.log(\"no shows found for this genre\")\n    }\n}\n\nasync function getShows() {\n    let response = await fetch(`${baseUrl}shows`)\n    let result = await response.json()\n    return result\n}\n\nfunction renderHomePage(show) {\n    let poster = document.getElementById(\"poster\")\n    poster.src = show.image.original\n    setShowInfo(show)\n}\n\nfunction setShowInfo(show) {\n    let title = document.getElementById(\"title\")\n    let rating = document.getElementById(\"rating\")\n    let description = document.getElementById(\"description\")\n\n\n    title.innerText = show.name\n    rating.innerText = `${show.rating.average}/10`\n    description.innerHTML = show.summary\n\n}\n\nconsole.log('this is');\n\n//# sourceURL=webpack://web2-frontend-bilalfwz/./src/script.js?");
+async function filterByGenre(e) {
+  let genre = e.target.innerText
+  let shows = await getShows()
+  let filteredShows = shows.filter(s => s.genres.includes(genre))
+  if (filteredShows.length > 0) {
+    let showId = Math.floor(Math.random() * filteredShows.length)
+    renderHomePage(filteredShows[showId])
+  } else {
+    console.log("no shows found for this genre")
+  }
+}
 
-/***/ })
+async function getShows() {
+  let response = await fetch(`${baseUrl}shows`)
+  let result = await response.json()
+  return result
+}
 
-/******/ 	});
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/script.js"]();
-/******/ 	
-/******/ })()
-;
+function renderHomePage(show) {
+  let poster = document.getElementById("poster")
+  console.log(show)
+  poster.src = show.image.original
+  setShowInfo(show)
+}
+
+function setShowInfo(show) {
+  let title = document.getElementById("title")
+  let description = document.getElementById("description")
+  let rating = document.getElementById("rating")
+
+  title.innerText = show.name
+  description.innerHTML = show.summary
+  rating.innerText = `${show.rating.average}/10`
+
+  let infoContainer = document.getElementById("info")
+  let addBtn = document.createElement("i")
+  addBtn.classList = "fas fa-plus-circle color-white"
+  addBtn.onclick = function () {
+    addToMyList(show)
+  }
+  infoContainer.appendChild(addBtn)
+}
