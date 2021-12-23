@@ -1,4 +1,4 @@
-let backendUrl = "http://localhost:5000"
+let backendUrl = "https://web-backendbilal.herokuapp.com/"
 
 async function getMyShows() {
     let response = await fetch(`${backendUrl}/shows`)
