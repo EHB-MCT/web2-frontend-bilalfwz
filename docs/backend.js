@@ -1,4 +1,4 @@
-let backendUrl = "https://web-backendbilal.herokuapp.com/"
+let backendUrl = "https://web-backendbilal.herokuapp.com"
 
 async function getMyShows() {
     let response = await fetch(`${backendUrl}/shows`)
