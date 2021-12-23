@@ -75,9 +75,7 @@ a {
 
 }
 
-.genre:hover {
-    cursor: pointer;
-}
+
 
 #showInfo {
     position: relative;
@@ -120,4 +118,8 @@ a {
     width: 100%;
     max-height: 100vh;
     filter: brightness(50%);
+}
+
+.action-buttons {
+    color: white;
 }

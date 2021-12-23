@@ -29,6 +29,10 @@ html {
     flex-direction: column;
 }
 
+#search {
+    margin: 1vw;
+}
+
 .fas {
     color: white;
 }
