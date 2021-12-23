@@ -16,7 +16,7 @@ module.exports = {
 
 
     output: {
-        filename: 'main.js',
+        filename: 'webpack.js',
         path: path.resolve(__dirname, 'docs'),
     },
     mode: 'production',
